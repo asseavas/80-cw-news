@@ -11,3 +11,17 @@ export interface ApiNews {
   text: string;
   image: string | null;
 }
+
+export interface Comment {
+  id: number;
+  news_id: number;
+  author: string;
+  text: string;
+  created_at: string;
+}
+
+export interface ApiComment {
+  news_id: number;
+  author: string;
+  text: string;
+}

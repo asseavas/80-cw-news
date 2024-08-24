@@ -39,7 +39,7 @@ const NewsOneItem: React.FC<Props> = ({ oneNews, onDelete, deleteLoading }) => {
             {oneNews.title}
           </Typography>
           <Typography variant="body2" color="text.secondary" mt={2}>
-            {dayjs(oneNews.created_at).format('DD.MM.YYYY HH:mm:ss')}
+            {dayjs(oneNews.created_at).format('DD.MM.YYYY HH:mm')}
           </Typography>
         </CardContent>
         <CardActions
@@ -57,7 +57,7 @@ const NewsOneItem: React.FC<Props> = ({ oneNews, onDelete, deleteLoading }) => {
             style={{
               border: 'none',
               background: 'none',
-              color: 'lightgrey',
+              color: 'grey',
               fontSize: '14px',
               textTransform: 'uppercase',
             }}

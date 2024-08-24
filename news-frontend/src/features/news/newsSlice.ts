@@ -66,10 +66,10 @@ export const newsSlice = createSlice({
         state.deleteLoading = newsId;
       })
       .addCase(deleteNews.fulfilled, (state) => {
-        state.oneFetching = false;
+        state.deleteLoading = false;
       })
       .addCase(deleteNews.rejected, (state) => {
-        state.oneFetching = false;
+        state.deleteLoading = false;
       });
   },
   selectors: {
