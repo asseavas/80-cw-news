@@ -15,13 +15,12 @@ export interface ApiNews {
 export interface Comment {
   id: number;
   news_id: number;
-  author: string;
+  author: string | null;
   text: string;
   created_at: string;
 }
 
 export interface ApiComment {
-  news_id: number;
-  author: string;
+  author: string | null;
   text: string;
 }

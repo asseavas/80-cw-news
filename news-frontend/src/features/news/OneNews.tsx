@@ -1,15 +1,9 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { selectOneNews, selectOneNewsFetching } from './newsSlice';
 import { fetchNews, fetchOneNews } from './newsThunks';
-import {
-  Card,
-  CardMedia,
-  CircularProgress,
-  Grid,
-  Typography,
-} from '@mui/material';
+import { CardMedia, CircularProgress, Grid, Typography } from '@mui/material';
 import dayjs from 'dayjs';
 import { fetchComments } from '../comments/commentsThunks';
 import { toast } from 'react-toastify';
@@ -30,13 +24,13 @@ const OneNews = () => {
 
   const deleteComments = async (id: string) => {
     try {
-      if (window.confirm('Are you sure you want to delete?')) {
+      if (window.confirm('Вы уверены, что хотите удалить комментарий?')) {
         await dispatch(deleteComments(id)).unwrap();
         await dispatch(fetchNews());
-        toast.success('Comment deleted!');
+        toast.success('Удален!');
       }
     } catch (e) {
-      toast.error('Could not delete news!');
+      toast.error('Не удален!');
     }
   };
 
@@ -90,8 +84,8 @@ const OneNews = () => {
           </Grid>
         )}
       </Grid>
-      <Grid item xs={6} container spacing={2}>
-        <Comments onDelete={() => deleteComments(id)} />
+      <Grid item xs={6} container>
+        <Comments onDelete={() => deleteComments(id)} id={id} />
       </Grid>
     </Grid>
   );

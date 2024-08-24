@@ -50,13 +50,13 @@ const News = () => {
 
   const deleteNews = async (id: number) => {
     try {
-      if (window.confirm('Are you sure you want to delete?')) {
+      if (window.confirm('Вы уверены, что хотите удалить новость?')) {
         await dispatch(deleteNews(id)).unwrap();
         await dispatch(fetchNews());
-        toast.success('News deleted!');
+        toast.success('Новость удалена!');
       }
     } catch (e) {
-      toast.error('Could not delete news!');
+      toast.error('Новость не удалена!');
     }
   };
 
